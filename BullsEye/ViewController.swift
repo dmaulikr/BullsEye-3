@@ -19,10 +19,11 @@ class ViewController: UIViewController {
 	@IBOutlet weak var targetLabel: UILabel!
 	@IBOutlet weak var scoreLabel: UILabel!
 	@IBOutlet weak var roundLabel: UILabel!
+	@IBOutlet weak var startOverLabel: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		startNewRound()
+		startNewGame()
 		updateLabels()
     }
 
@@ -77,6 +78,11 @@ class ViewController: UIViewController {
         currentValue = lroundf(slider.value)
     }
 	
+	@IBAction func startOver() {
+		startNewGame()
+		updateLabels()
+	}
+	
 	func startNewRound() {
 		round += 1
 		targetValue = 1 + Int(arc4random_uniform(100))
@@ -84,10 +90,18 @@ class ViewController: UIViewController {
 		slider.value = Float(currentValue)
 	}
 	
+	func startNewGame() {
+		score = 0
+		round = 0
+		startNewRound()
+	}
+	
 	func updateLabels() {
 	targetLabel.text = String(targetValue)
 	scoreLabel.text = String(score)
 	roundLabel.text = String(round)
 	}
+	
+	
 }
 
