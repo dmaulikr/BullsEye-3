@@ -20,6 +20,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var scoreLabel: UILabel!
 	@IBOutlet weak var roundLabel: UILabel!
 	@IBOutlet weak var startOverLabel: UIButton!
+	@IBOutlet weak var closeLabel: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
